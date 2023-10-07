@@ -292,28 +292,3 @@ jQuery(document).ready(function($) {
 	swiperSetting();
 
 });
-
-function sendEmail(){
-	var params = {
-		fname: document.getElementById('fname').value ,
-		lname: document.getElementById('lname').value ,
-		email: document.getElementById('email'). value ,
-		message: document.getElementById('message'). value,
-	}
-
-	const serviceID = "service_rqlzfqm";
-	const templateID = "template_1xtnc2f";
-
-	emailjs
-		.send(serviceID,templateID,params)
-		.then(
-			res => {
-				document.getElementById('fname').value = "";
-				document.getElementById('lname').value = "";
-				document.getElementById('email').value = "";
-				document.getElementById('message').value = "";
-				console.log(res);
-				alert("Your massage sent successfully");
-			})
-		.catch((err) => console.log(err));
-}
